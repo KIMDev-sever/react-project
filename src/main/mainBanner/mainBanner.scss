@@ -1,0 +1,29 @@
+p{
+    position: absolute;
+    display: block;
+    width: 100%;
+    text-align: center;
+
+}
+.title-area{
+    margin-top: 200px;
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+}
+.description-area{
+    margin-top: 350px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.buttom-area{
+    margin-top: 500px;
+}
+
+@media screen and (max-width:560px) {
+    .description-area{
+        margin-top: 445px;
+        font-size: 20px;
+    }
+}

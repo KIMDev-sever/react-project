@@ -2,15 +2,29 @@
   width: 100%;
   height: 100%;
   margin: 0px;
-  
+  overflow: scroll;
   header{
     background-color: rgba(0, 0, 0, 0.87);
     color: #fff;
     height: 70px;
     
   }
+  section{
+ 
+  }
+  footer{
+    width: 100%;
+    bottom: 0;
+    background-color: #fff5f8;
+    height: 300px;
+  }
 }
-
+.buttomColor{
+  font-weight: bold;
+  &.signUp{
+    color: #f00;
+  }
+}
 // @media all and (min-width:320px) {
 //   #wrap div{
 //     width:100%;

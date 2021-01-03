@@ -1,0 +1,56 @@
+.content-box{
+    width: 100%;
+    height: 500px;
+    .list-box{
+        width: 95%;
+        height: 400px;
+        background-color: #fff;
+        margin: 0 auto ;
+
+        position: relative;
+        .btn{
+            position: absolute;
+            z-index: 5;
+            height: 50%;
+            background-color: rgba($color: #fff, $alpha: 0.5);
+            width: 20px;
+            margin-top: 90px;
+            &.left{ 
+                left: 0px;
+            }
+            &.right{
+                right: 0px;
+            }
+        }
+        .list{
+            width: 95%;
+            height: 400px;
+            overflow: auto;
+            display: flex;
+            .event{
+                margin:10px;
+                width: 200px;
+                height: 300px;
+                text-align: center;
+                img{
+                    width: 200px;
+                    height: 300px;
+                    object-fit: contain;
+                }
+                .price-box{
+                    span{
+                        margin: 3px;
+                        &.price{
+                            font-size: 10px;
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+           
+            }
+            &::-webkit-scrollbar { 
+                display: none !important; 
+            }
+        }
+    }
+}

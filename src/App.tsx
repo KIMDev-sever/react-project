@@ -2,8 +2,11 @@ import React, { Component   } from 'react'; //useState  hook(함수형컴포넌�
                                                         //useState 함수영 컴포넌트일떄 가변적인 상태를지닐수있게 해주는 상태관리
 import './App.scss';
 import Main from './main/main'
-import { Container, AppBar, Toolbar, IconButton, Typography, Button, withStyles } from '@material-ui/core';
+import Footer from './footer/footer';
+import ProductList from './productList/productList'
+import { AppBar, Toolbar, IconButton, Typography, Button, withStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { BrowserRouter, Route } from 'react-router-dom'; // 리엑트 루팅용 라이브러리
 //props ===@input
 //sate 
 //defaultProps props 정의 안할떄
@@ -11,17 +14,19 @@ import MenuIcon from '@material-ui/icons/Menu';
 //클래스형은 라이플 사이클로 제어
 //함수형은 hook
 
-const useStyles = (theme: { spacing: (arg0: number) => any; }) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-});
+function useStyles(theme: { spacing: (arg0: number) => any; }) {
+  return ({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+  });
+}
 class App extends Component {
 
   // 라이플사이클
@@ -51,17 +56,22 @@ class App extends Component {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+    
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button className="buttomColor" color="inherit">SIGN IN</Button>
+          <Button className="buttomColor signUp">SIGN UP</Button>
         </Toolbar>
       </AppBar>
       </header>
-      <Container maxWidth="sm">
-        <Main></Main>
-      </Container>
+      <section className="body">
+         <BrowserRouter>
+           <Route exact path="/" component={Main}></Route>
+           <Route path="/product/:key" component={ProductList}></Route>
+        </BrowserRouter>
+      </section>
+   
       <footer>
-
+        <Footer></Footer>
       </footer>
     </div>
   }
