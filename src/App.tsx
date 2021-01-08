@@ -4,9 +4,9 @@ import './App.scss';
 import Main from './main/main'
 import Footer from './footer/footer';
 import ProductList from './productList/productList'
-import { AppBar, Toolbar, IconButton, Typography, Button, withStyles } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import { BrowserRouter, Route } from 'react-router-dom'; // 리엑트 루팅용 라이브러리
+import { AppBar, Toolbar, IconButton, Typography, Button, withStyles, Icon } from '@material-ui/core';
+import { BrowserRouter, Link, Route } from 'react-router-dom'; // 리엑트 루팅용 라이브러리
+import SignUp from './signUp/signUp';
 //props ===@input
 //sate 
 //defaultProps props 정의 안할떄
@@ -19,8 +19,9 @@ function useStyles(theme: { spacing: (arg0: number) => any; }) {
     root: {
       flexGrow: 1,
     },
-    menuButton: {
+    homeButton: {
       marginRight: theme.spacing(2),
+
     },
     title: {
       flexGrow: 1,
@@ -49,30 +50,35 @@ class App extends Component {
     console.log(this.props) //컴포넌트 재활용?
     const { classes }:any = this.props;
     return <div className="wrap">
+      <BrowserRouter>
       <header>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+          <Link to='/' className="home">
+          <IconButton edge="start" className={classes.homeButton} color="inherit" aria-label="menu">
+            <Icon>home</Icon>
           </IconButton>
+          </Link>
           <Typography variant="h6" className={classes.title}>
     
           </Typography>
           <Button className="buttomColor" color="inherit">SIGN IN</Button>
-          <Button className="buttomColor signUp">SIGN UP</Button>
+          <Link to='/signUp'>
+            <Button className="buttomColor signUp">SIGN UP</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       </header>
       <section className="body">
-         <BrowserRouter>
            <Route exact path="/" component={Main}></Route>
+           <Route path="/signUp" component={SignUp}></Route>
            <Route path="/product/:key" component={ProductList}></Route>
-        </BrowserRouter>
       </section>
    
       <footer>
         <Footer></Footer>
       </footer>
+      </BrowserRouter>
     </div>
   }
 

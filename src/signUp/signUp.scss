@@ -1,1 +1,12 @@
-.signUp {}
+.contents{
+
+    height: calc(100vh - 370px);
+    .sign-up-box{
+        margin-top: 50px;
+        background-color:#fff5f8;
+        height: 80%;
+        .input-box{
+            height: 100%;
+        }
+    }
+}

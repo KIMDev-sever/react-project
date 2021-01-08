@@ -44,7 +44,7 @@ class Main extends Component {
         <GridPicture data={this.categoryList}></GridPicture>
       </div>
       <div className="event-box">
-          <MainEvent data={this.eventData} children={this.props.children}></MainEvent>  {/* props 타입정의 */}
+          <MainEvent data={this.eventData} children={this.props.children} ></MainEvent>  {/* props 타입정의 */}
       </div>
       <div className="help-box">
           <Help></Help>

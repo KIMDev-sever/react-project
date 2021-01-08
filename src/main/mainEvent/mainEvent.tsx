@@ -28,8 +28,9 @@ class MainEvent extends Component<MainEventProps> { //프롭스타입 정의
 
   render() {
     this.event = this.props.data;
-    const listTag = this.event.eventList.map((data) =>
-    (<Link to={`/product/detail/${data.id}`}><div className="event">
+    // array안에 있는 차일드들은 고유한(unique) key prop을 가져야 한다.
+    const listTag = this.event.eventList.map((data,index) => 
+    (<Link to={`/product/detail/${data.id}`} id={data.id}><div className="event"> 
       <img src={data.img} alt={data.key}></img> {/*리엑트에서 이미지 태그 는 alt를 정의해줘야됨 */}
       <h5>{data.title}</h5>
       <span className="price-box"><span className="price">{data.price}원</span><span className="sale">{data.price-(data.price*data.sale/100)}원</span></span>

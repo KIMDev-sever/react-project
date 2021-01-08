@@ -11,7 +11,7 @@ class Footer extends Component {
         <div className="footer-box">
             <div className="sns-box">
                 {this.footerData.snsList.map((sns)=>{
-                  return <img src={sns.icon} alt={sns.key}></img>
+                  return <img src={sns.icon} alt={sns.key} id={sns.key}></img>
                 })}
                
    
@@ -20,7 +20,7 @@ class Footer extends Component {
               
                {this.footerData.footerMenuList.map((menu,index)=>{
                 
-                    return <span>{menu.name}</span>
+                    return <span id={menu.key}>{menu.name}</span>
                 })}
                  <br></br>
                  <br></br>
